@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
+from math import *
 
 
-num_levels = 2
-max_levels_to_plot = 2
+num_levels = 16
+max_levels_to_plot = 8
 keV = 8.61734e-5      #boltzman constant eV/K
 k = 1.38065e-23          #boltzman constant j/K
 ion_energy = 13.6
@@ -41,7 +41,7 @@ def saha_quad(temp,density):
     const = (((2.0 * np.pi * m_e * k * temp) / (h*h))**(3.0/2.0)) * 2.0 * np.exp(-(ion_energy) / (keV *temp))
     const = const / (Z * density)
 
-    relnum = (-const + math.sqrt(const**2 + (4*const))) * 0.5
+    relnum = (-const + sqrt(const**2 + (4*const))) * 0.5
     if(relnum < 0.0):
         print("ERROR: ratio negative")
         exit()
